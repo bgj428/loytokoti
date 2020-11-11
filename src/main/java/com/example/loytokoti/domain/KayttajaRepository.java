@@ -1,9 +1,9 @@
 package com.example.loytokoti.domain;
 
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.CrudRepository;
 
 
-public interface KayttajaRepository extends MongoRepository<Kayttaja, Long> {
+public interface KayttajaRepository extends  CrudRepository<Kayttaja, Long> {
 	Kayttaja findByUsername(String username);
 }

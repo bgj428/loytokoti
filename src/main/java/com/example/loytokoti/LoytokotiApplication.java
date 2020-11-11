@@ -6,8 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-
 import com.example.loytokoti.domain.Animal;
 import com.example.loytokoti.domain.AnimalRepository;
 import com.example.loytokoti.domain.Kayttaja;
@@ -16,7 +14,6 @@ import com.example.loytokoti.domain.Species;
 import com.example.loytokoti.domain.SpeciesRepository;
 
 @SpringBootApplication
-@EnableMongoRepositories
 public class LoytokotiApplication{
 	private static final Logger log = LoggerFactory.getLogger(LoytokotiApplication.class);
 	

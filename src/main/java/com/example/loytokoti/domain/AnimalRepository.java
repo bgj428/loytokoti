@@ -1,14 +1,11 @@
 package com.example.loytokoti.domain;
 
 import java.util.List;
-import java.util.Optional;
-
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.CrudRepository;
 
 
-public interface AnimalRepository extends MongoRepository<Animal, Long> {
+public interface AnimalRepository extends CrudRepository<Animal, Long> {
 	List<Animal> findByName(String name);
-	public Optional<Animal> findById(Long id);
 	
 
 }
