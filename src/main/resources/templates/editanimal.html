@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Löytökoti</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Muokkaa eläimen tietoja</h1>
+	<div>
+		<form th:object="${animal}" th:action="@{../save}" action="#"
+			method="post">
+			<input type="hidden" th:field="*{id}" class="form-control" /> <input
+				type="text" th:field="*{name}" /> <input type="text"
+				th:field="*{age}" /> <input type="text" th:field="*{info}" /> <input
+				type="text" th:field="*{sex}" /> <input type="submit"
+				class="btnbtn-success" value="Save"></input>
+
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="specieslist">Laji:</label> <select id="specieslist"
+				th:field="*{species}" class="form-control">
+				<option th:each="species: ${allspecies}"
+					th:value="${species.speciesId}" th:text="${species.speciesName}"></option>
+			</select>
+		</form>
+	</div>
+</body>
+</html>

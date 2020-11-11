@@ -1,0 +1,49 @@
+<!DOCTYPE hmtl>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+<title>Kotia tarvitsevat eläimet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div class="container">
+		<div class="col-md-4">
+			<h1>Animals</h1>
+		</div>
+		<div class="col-md-4">
+			<h3 th:inline="text">Welcome
+				[[${#httpServletRequest.remoteUser}]]</h3>
+		</div>
+		<div class="col-md-4" style="padding: 20px 0">
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" class="btn btn-sm btn-danger" />
+			</form>
+		</div>
+		<table class="table table-striped">
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Info</th>
+				<th>sex</th>
+				<th>Species</th>
+				<th sec:authorize="hasAuthority('ADMIN')"></th>
+			</tr>
+			<tr th:each="animal : ${animals}">
+				<td th:text="${animal.name}"></td>
+				<td th:text="${animal.age}"></td>
+				<td th:text="${animal.info}"></td>
+				<td th:text="${animal.sex}"></td>
+				<td th:text="${animal.species.speciesName}"></td>
+				 <td sec:authorize="hasAuthority('ADMIN')"><a
+					class="btn btn-danger" th:href="@{/delete/{id}(id=${animal.id})}">Poista</a></td>
+				<td><a class="btn btn-success"
+					th:href="@{/edit/{id}(id=${animal.id})}">Muokkaa</a></td>
+			</tr>
+			<a class="btn btn-success" href="/add">Lisää uusi eläin</a>
+		</table>
+		
+	</div>
+</body>
+</html>
