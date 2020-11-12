@@ -25,6 +25,7 @@ public class LoytokotiApplication{
 	public CommandLineRunner animalDemo(AnimalRepository arepository, SpeciesRepository srepository, 
 			KayttajaRepository krepository) {
 		return (args) -> {
+			//Luodaan joitakin lajeja sovellukseen tallentaen ne SpeciesRepositoryn kautta
 			log.info("saving most common species");
 			srepository.save(new Species("Kissa"));
 			srepository.save(new Species("Koira"));
@@ -34,6 +35,7 @@ public class LoytokotiApplication{
 			srepository.save(new Species("Lintu"));
 			srepository.save(new Species("Muu"));
 			
+			//Lisätään löytökodin eläimiä, jotta nähdään sovelluksen toiminta
 			log.info("saving couple of animals");
 			arepository.save(new Animal("Mytty", 2, "Kissa", "male", srepository.findBySpeciesName("Kissa").get(0)));
 			arepository.save(new Animal("Max", 3, "Kissa", "female", srepository.findBySpeciesName("Kissa").get(0)));
@@ -41,12 +43,14 @@ public class LoytokotiApplication{
 			arepository.save(new Animal("Perry", 5, "Nokkaeläin", "male", srepository.findBySpeciesName("Kissa").get(0)));
 			arepository.save(new Animal("Hilma", 2, "Hevonen", "male", srepository.findBySpeciesName("Kissa").get(0)));
 			
+			//Lisätään käyttäjät kirjautumiseen
 			log.info("saving users");
 			Kayttaja kayttaja1 = new Kayttaja("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
 			Kayttaja kayttaja2 = new Kayttaja("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
 			krepository.save(kayttaja1);
 			krepository.save(kayttaja2);
 			
+			//Haetaan kaikki eläimet
 			log.info("fetching all the animals");
 			for ( Animal animal : arepository.findAll()) {
 				log.info(animal.toString());

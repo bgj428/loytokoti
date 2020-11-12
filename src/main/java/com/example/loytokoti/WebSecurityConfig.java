@@ -17,6 +17,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Autowired 
 	private UserDetailServiceImpl userDetailsService;
 	
+	//Määritellään millä oikeuksilla käyttäjälle aukeaa sivut/toiminnot
+	//Jokaisella on pääsy animallistiin
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http

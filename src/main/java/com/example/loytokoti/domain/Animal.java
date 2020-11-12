@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Animal {
+	// Autogeneroidaan ID
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -18,6 +19,7 @@ public class Animal {
 	private int age;
 	private String info;
 	private String sex;
+	
 
 	@ManyToOne
 	@JsonIgnore
@@ -25,6 +27,7 @@ public class Animal {
 	@JsonManagedReference
 	private Species species;
 
+	// Konstruktorit:
 	public Animal() {
 
 	}
@@ -38,9 +41,13 @@ public class Animal {
 		this.species = species;
 	}
 
+	// Getterit ja setterit
+
 	public Species getSpecies() {
 		return species;
 	}
+
+	
 
 	public void setSpecies(Species species) {
 		this.species = species;
@@ -86,6 +93,8 @@ public class Animal {
 		this.sex = sex;
 	}
 
+	// Alustava mongodb-kanta yhteyden toString()
+	// if-lause, jos ei lajia(species) ole määritelty
 	@Override
 	public String toString() {
 		if (this.species != null)

@@ -8,6 +8,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Kayttaja {
+	// Autogeneroidaan ID
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false, updatable = false)
@@ -22,6 +23,7 @@ public class Kayttaja {
 	@Column(name = "role", nullable = false)
 	private String role;
 
+	// Konstruktorit:
 	public Kayttaja() {
 
 	}
@@ -33,6 +35,7 @@ public class Kayttaja {
 		this.role = role;
 	}
 
+	// Getterit ja setterit
 	public Long getId() {
 		return id;
 	}
@@ -65,6 +68,7 @@ public class Kayttaja {
 		this.role = role;
 	}
 
+	// Alustava mongodb-kanta yhteyden toString()
 	@Override
 	public String toString() {
 		return String.format("Kayttaja[id=%s, username='%s', passwordHash='%s', role='%s']", id, username, passwordHash,

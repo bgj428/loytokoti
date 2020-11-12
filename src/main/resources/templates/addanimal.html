@@ -5,12 +5,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
 	th:href="@{css/bootstrap.min.css}" />
+<script
+	src="https://ajax.googleapis.com/ajax/Libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 	<h1>Lisää uusi eläin</h1>
 	<p>Syötä kaikkiin kenttiin tarvittavat tiedot</p>
 	<div>
-		<form th:object=${animal} th:action="@{save}" action="#" method="post">
+		<form th:object=${animal} th:action="@{save}" action="#" method="post"
+			enctype=”multipart/form-data”>
 			<label for="name">Nimi:</label> <input type="text" id="name"
 				th:field="*{name}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
@@ -26,9 +29,9 @@
 			<label for="specieslist">Laji:</label> <select id="specieslist"
 				th:field="*{species}" class="form-control">
 				<option th:each="species: ${allspecies}"
-					th:value="${species.speciesId}" 
-					th:text="${species.speciesName}"></option>
-			</select>
+					th:value="${species.speciesId}" th:text="${species.speciesName}"></option>
+			</select> 
+
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<input type="submit" value="Save"></input>
 		</form>
