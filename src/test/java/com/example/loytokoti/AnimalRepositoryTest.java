@@ -23,10 +23,10 @@ public class AnimalRepositoryTest {
 	
 	@Test
 	public void findByNameShouldReturnAnimal() {
-		List<Animal> animal = arepository.findByName("Mytty");
+		List<Animal> animal = arepository.findByName("Mythos");
 		
 		assertThat(animal).hasSize(1);
-		assertThat(animal.get(0).getName()).isEqualTo("Mytty");
+		assertThat(animal.get(0).getName()).isEqualTo("Mythos");
 	}
 	@Test
 	public void createNewAnimal() {
