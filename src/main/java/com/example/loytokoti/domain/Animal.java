@@ -20,7 +20,6 @@ public class Animal {
 	private String info;
 	private String sex;
 	
-
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name = "species")
