@@ -38,7 +38,7 @@ public class AnimalController {
 	}
 
 	// KAIKKIEN KIRJOJEN LISTAUS
-	@RequestMapping("/animallist")
+	@RequestMapping(value={"/", "/animallist"})
 	public String animals(Model model) {
 		model.addAttribute("animals", arepository.findAll());
 		return "animallist";
