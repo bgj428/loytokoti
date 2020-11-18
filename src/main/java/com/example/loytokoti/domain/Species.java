@@ -57,7 +57,7 @@ public class Species {
 		this.animals = animals;
 	}
 
-	// Alustava mongodb-kanta yhteyden toString()
+	// toString()
 	@Override
 	public String toString() {
 		return String.format("Species[speciesId=%s, speciesName='%s']", speciesId, speciesName);

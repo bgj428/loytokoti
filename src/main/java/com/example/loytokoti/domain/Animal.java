@@ -90,7 +90,7 @@ public class Animal {
 		this.sex = sex;
 	}
 
-	// Alustava mongodb-kanta yhteyden toString()
+	// toString()
 	// if-lause, jos ei lajia(species) ole määritelty
 	@Override
 	public String toString() {

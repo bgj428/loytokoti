@@ -68,7 +68,7 @@ public class Kayttaja {
 		this.role = role;
 	}
 
-	// Alustava mongodb-kanta yhteyden toString()
+	// toString()
 	@Override
 	public String toString() {
 		return String.format("Kayttaja[id=%s, username='%s', passwordHash='%s', role='%s']", id, username, passwordHash,
