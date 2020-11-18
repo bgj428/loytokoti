@@ -19,7 +19,7 @@ public class Animal {
 	private int age;
 	private String info;
 	private String sex;
-	
+
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name = "species")
@@ -45,8 +45,6 @@ public class Animal {
 	public Species getSpecies() {
 		return species;
 	}
-
-	
 
 	public void setSpecies(Species species) {
 		this.species = species;

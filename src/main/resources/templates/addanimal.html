@@ -30,8 +30,8 @@
 				th:field="*{species}" class="form-control">
 				<option th:each="species: ${allspecies}"
 					th:value="${species.speciesId}" th:text="${species.speciesName}"></option>
-			</select> 
-			
+			</select>
+
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<input type="submit" value="Save"></input>
 		</form>

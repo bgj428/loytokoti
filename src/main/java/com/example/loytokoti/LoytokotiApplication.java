@@ -15,7 +15,6 @@ import com.example.loytokoti.domain.KayttajaRepository;
 import com.example.loytokoti.domain.Species;
 import com.example.loytokoti.domain.SpeciesRepository;
 
-
 @SpringBootApplication
 @ComponentScan({ "com.example.loytokoti", "controller" })
 public class LoytokotiApplication {
@@ -45,12 +44,18 @@ public class LoytokotiApplication {
 			arepository.save(new Animal("Excelsa", 5,
 					"Kurrnau... tai miten nyt tykkääkin sanoa. Olen tällainen ikkunaprinsessa. Pidän siitä, että saan katsella maailman menoa ikkunalasin takaa.",
 					"male", srepository.findBySpeciesName("Kissa").get(0)));
-			arepository.save(new Animal(
-					"Mythos", 3, "Miau! Täällä kuikuilee mystinen kissaherra Mythos. Haluaisitko tutustua hieman salaperäiseen sielunelämääni?", "female", srepository.findBySpeciesName("Kissa").get(0)));
-			arepository.save(new Animal("Pepsi", 12, "Huima, persoonallinen hömelö – se on kaikesta niin innoissaan, että hiki tulee jo sen olemusta katsellessa. Huima haluaa osallistua kaikkeen, mitä sen ympärillä tapahtuu", "male", srepository.findBySpeciesName("Koira").get(0)));
-			arepository
-					.save(new Animal("Perry", 5, "Pidetään hiljaisena ja mitään tekemättömänä. Hän elää kuitenkin kaksoiselämää salaisena agenttina.", "male", srepository.findBySpeciesName("Nokkaeläin").get(0)));
-			arepository.save(new Animal("Hilma", 2, "Hilmalla on kuvankaunis, komea suku. Se jää todennäköisesti isäänsä ja emäänsä pienemmäksi, säkäkorkeudeltaan noin 160-senttiseksi.", "male", srepository.findBySpeciesName("Hevonen").get(0)));
+			arepository.save(new Animal("Mythos", 3,
+					"Miau! Täällä kuikuilee mystinen kissaherra Mythos. Haluaisitko tutustua hieman salaperäiseen sielunelämääni?",
+					"female", srepository.findBySpeciesName("Kissa").get(0)));
+			arepository.save(new Animal("Pepsi", 12,
+					"Huima, persoonallinen hömelö – se on kaikesta niin innoissaan, että hiki tulee jo sen olemusta katsellessa. Huima haluaa osallistua kaikkeen, mitä sen ympärillä tapahtuu",
+					"male", srepository.findBySpeciesName("Koira").get(0)));
+			arepository.save(new Animal("Perry", 5,
+					"Pidetään hiljaisena ja mitään tekemättömänä. Hän elää kuitenkin kaksoiselämää salaisena agenttina.",
+					"male", srepository.findBySpeciesName("Nokkaeläin").get(0)));
+			arepository.save(new Animal("Hilma", 2,
+					"Hilmalla on kuvankaunis, komea suku. Se jää todennäköisesti isäänsä ja emäänsä pienemmäksi, säkäkorkeudeltaan noin 160-senttiseksi.",
+					"male", srepository.findBySpeciesName("Hevonen").get(0)));
 
 			// Lisätään käyttäjät kirjautumiseen
 			log.info("saving users");

@@ -13,28 +13,19 @@ import com.example.loytokoti.web.UserDetailServiceImpl;
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
-	@Autowired 
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	@Autowired
 	private UserDetailServiceImpl userDetailsService;
-	
-	//Määritellään millä oikeuksilla käyttäjälle aukeaa sivut/toiminnot
-	//Jokaisella on pääsy animallistiin
+
+	// Määritellään millä oikeuksilla käyttäjälle aukeaa sivut/toiminnot
+	// Jokaisella on pääsy animallistiin
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http
-		.authorizeRequests().antMatchers("/css/**").permitAll()
-		.and()
-		.authorizeRequests()
-			.anyRequest().authenticated()
-			.and()
-	.formLogin()
-			.defaultSuccessUrl("/animallist")
-			.permitAll()
-			.and()
-		.logout()
-			.permitAll();
+		http.authorizeRequests().antMatchers("/css/**").permitAll().and().authorizeRequests().anyRequest()
+				.authenticated().and().formLogin().defaultSuccessUrl("/animallist").permitAll().and().logout()
+				.permitAll();
 	}
-	
+
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());

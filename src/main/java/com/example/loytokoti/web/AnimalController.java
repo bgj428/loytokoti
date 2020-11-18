@@ -21,7 +21,6 @@ import com.example.loytokoti.domain.Animal;
 import com.example.loytokoti.domain.AnimalRepository;
 import com.example.loytokoti.domain.SpeciesRepository;
 
-
 @Controller
 public class AnimalController {
 	public static String uploadDirectory = System.getProperty("user.dir") + "/uploads";
@@ -32,25 +31,26 @@ public class AnimalController {
 	@Autowired
 	private SpeciesRepository srepository;
 
+	// KIRJAUTUMINEN ENNEN KÄYTTÖÄ
 	@RequestMapping(value = "/login")
 	public String login() {
 		return "login";
 	}
 
-	// KAIKKIEN KIRJOJEN LISTAUS
-	@RequestMapping(value={"/", "/animallist"})
+	// KAIKKIEN ELÄIMIEN LISTAUS
+	@RequestMapping(value = { "/", "/animallist" })
 	public String animals(Model model) {
 		model.addAttribute("animals", arepository.findAll());
 		return "animallist";
 	}
 
-	// RESTIN JSON MUODOSSA KIRJAT
+	// RESTIN JSON MUODOSSA ELÄIMET
 	@RequestMapping(value = "/animals", method = RequestMethod.GET)
 	public @ResponseBody List<Animal> animals() {
 		return (List<Animal>) arepository.findAll();
 	}
 
-	// RESTIN AVULLA YKSITTÄINEN KIRJA ID:N PERUSTEELLA
+	// RESTIN AVULLA YKSITTÄINEN ELÄIN ID:N PERUSTEELLA
 	@RequestMapping(value = "/animals/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Animal> findAnimalRest(@PathVariable("id") Long animalId) {
 		return arepository.findById(animalId);
@@ -64,14 +64,14 @@ public class AnimalController {
 		return "addanimal";
 	}
 
-	// UUDEN KIRJAN TALLENNUS
+	// UUDEN ElÄIMEN TALLENNUS
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Animal animal) {
 		arepository.save(animal);
 		return "redirect:/animallist";
 	}
 
-	// ELÄIMEN POISTO ID:N PERUSTEELLA
+	// ELÄIMEN ADOPTOINTI/POISTO ID:N PERUSTEELLA
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteAnimal(@PathVariable("id") Long animalId, Model model) {
 		arepository.deleteById(animalId);
@@ -86,5 +86,5 @@ public class AnimalController {
 		model.addAttribute("allspecies", srepository.findAll());
 		return "editanimal";
 	}
-	
+
 }

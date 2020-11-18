@@ -18,6 +18,7 @@ public class AnimalRepositoryTest {
 	@Autowired
 	private AnimalRepository arepository;
 
+	// testataaan, että löytyykö tietokannasta "Mythos" nimistä eläintä
 	@Test
 	public void findByNameShouldReturnAnimal() {
 		List<Animal> animal = arepository.findByName("Mythos");
@@ -26,6 +27,7 @@ public class AnimalRepositoryTest {
 		assertThat(animal.get(0).getName()).isEqualTo("Mythos");
 	}
 
+	// testataan eläimen luontia
 	@Test
 	public void createNewAnimal() {
 		Animal animal = new Animal("moi", 2, "moi", "male", new Species("Moi"));
@@ -33,6 +35,7 @@ public class AnimalRepositoryTest {
 		assertThat(animal.getId()).isNotNull();
 	}
 
+	// testataan poistoa
 	@Test
 	public void deleteAnimal() {
 		Animal animal = new Animal("moi", 2, "moi", "male", new Species("Moi"));

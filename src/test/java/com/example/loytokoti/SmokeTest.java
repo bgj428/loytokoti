@@ -16,6 +16,7 @@ public class SmokeTest {
 	@Autowired
 	private AnimalController controller;
 
+	// Testi tarkistaa, ettei controlleri jää tyhjäksi eli latautuu kuten pitää
 	@Test
 	public void contexLoads() throws Exception {
 		assertThat(controller).isNotNull();

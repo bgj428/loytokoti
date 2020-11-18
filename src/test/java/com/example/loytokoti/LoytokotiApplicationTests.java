@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class LoytokotiApplicationTests {
 
+	// automaattisesti generoitu testi
 	@Test
 	void contextLoads() {
 	}

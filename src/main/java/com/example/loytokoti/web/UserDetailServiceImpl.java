@@ -13,22 +13,22 @@ import com.example.loytokoti.domain.Kayttaja;
 import com.example.loytokoti.domain.KayttajaRepository;
 
 @Service
-public class UserDetailServiceImpl implements UserDetailsService{
+public class UserDetailServiceImpl implements UserDetailsService {
 	private final KayttajaRepository krepository;
-	
+
 	@Autowired
 	public UserDetailServiceImpl(KayttajaRepository krepository) {
 		this.krepository = krepository;
 	}
-	
+
 	@Autowired
 	private UserDetailServiceImpl userDetailsService;
-	
+
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
 	}
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Kayttaja curruser = krepository.findByUsername(username);
